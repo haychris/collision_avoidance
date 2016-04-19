@@ -386,11 +386,16 @@ initStartingGrid(void)
 	// int useBrakes = rand() % 2;
 	// int useSteering = rand() % 2;
 	tdble useBrakes = rand() / (RAND_MAX + 1.);
-	tdble useSteering = 2*rand() / (RAND_MAX + 1.) - 1;
+	tdble useSteering = rand() / (RAND_MAX + 1.);
+	int desiredLane = 2*(rand() % 2) - 1;
 	std::cout << "curCarSpeed: " << curCarSpeed << "\n";
 	std::cout << "obstacleCarAheadSpeed: " << obstacleCarAheadSpeed << "\n";
-	std::cout << "obstacleCarAheadSpeed: " << obstacleCarAheadSpeed << "\n";
+	std::cout << "obstacleCarLeftSpeed: " << obstacleCarLeftSpeed << "\n";
+	std::cout << "obstacleCarRightSpeed: " << obstacleCarRightSpeed << "\n";
+	std::cout << "desiredLane" << desiredLane << "\n";
 	std::cout << "desiredOffsetAhead: " << desiredOffsetAhead << "\n";
+	std::cout << "desiredOffsetLeft: " << desiredOffsetLeft << "\n";
+	std::cout << "desiredOffsetRight: " << desiredOffsetRight << "\n";
 	std::cout << "use_brakes: " << useBrakes << "\n";
 	std::cout << "use_steering: " << useSteering << "\n";
 	//////// End added by Chris
@@ -404,25 +409,30 @@ initStartingGrid(void)
 			if (i == 0) {
 				car->_speed_x = obstacleCarRightSpeed;
 				startpos = ReInfo->track->length - 1.0*(car->_speed_x + maxOffset - desiredOffsetRight - CAR_OFFSET);
+				tr = a + b * 0.166;
 			} else if (i == 1) {
 				car->_speed_x = obstacleCarLeftSpeed;
 				startpos = ReInfo->track->length - 1.0*(car->_speed_x + maxOffset - desiredOffsetLeft - CAR_OFFSET);
+				tr = a + b * (1-0.166);
 			} else if (i == 2) {
 				car->_speed_x = obstacleCarAheadSpeed;
 				startpos = ReInfo->track->length - 1.0*(car->_speed_x + maxOffset - desiredOffsetAhead - CAR_OFFSET);
+				tr = a + b * 0.5;
 			}
 			else {
 				car->_speed_x = curCarSpeed;
 				startpos = ReInfo->track->length - 1.0*(car->_speed_x + maxOffset - CAR_OFFSET);
 				car->info.brakeCollisionAvoidance = useBrakes;
 				car->info.steeringCollisionAvoidance = useSteering;
+				tr = a + b * 0.5;
+				car->info.desiredLane = desiredLane;
 			}
 		} else {
 			car->_speed_x = speedInit;
 			startpos = ReInfo->track->length - (d1 + (i / rows) * d2 + (i % rows) * d3);
+			tr = a + b * ((i % rows) + 1) / (rows + 1);
 		}
 		/////// End added by Chris
-		tr = a + b * ((i % rows) + 1) / (rows + 1);
 		curseg = ReInfo->track->seg;  /* last segment */
 
 		// int counter = 0;

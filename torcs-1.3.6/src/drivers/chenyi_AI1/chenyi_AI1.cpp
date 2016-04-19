@@ -16,6 +16,8 @@
  ***************************************************************************/
 #include <zmq.h>
 #include <unistd.h>
+#include <cmath>
+
 // #include <zmq.hpp>
 #include <string>
 #include <sstream>
@@ -41,7 +43,7 @@
 #include <robottools.h>
 #include <robot.h>
 
-static tTrack	*curTrack;
+static tTrack   *curTrack;
 
 static void initTrack(int index, tTrack* track, void *carHandle, void **carParmHandle, tSituation *s); 
 static void newrace(int index, tCarElt* car, tSituation *s); 
@@ -66,10 +68,10 @@ chenyi_AI1(tModInfo *modInfo)
 {
     memset(modInfo, 0, 10*sizeof(tModInfo));
 
-    modInfo->name    = strdup("chenyi_AI1");		/* name of the module (short) */
-    modInfo->desc    = strdup("");	/* description of the module (can be long) */
-    modInfo->fctInit = InitFuncPt;		/* init function */
-    modInfo->gfId    = ROB_IDENT;		/* supported framework version */
+    modInfo->name    = strdup("chenyi_AI1");        /* name of the module (short) */
+    modInfo->desc    = strdup("");  /* description of the module (can be long) */
+    modInfo->fctInit = InitFuncPt;      /* init function */
+    modInfo->gfId    = ROB_IDENT;       /* supported framework version */
     modInfo->index   = 1;
 
     return 0; 
@@ -82,13 +84,13 @@ InitFuncPt(int index, void *pt)
     tRobotItf *itf  = (tRobotItf *)pt; 
 
     itf->rbNewTrack = initTrack; /* Give the robot the track view called */ 
-				 /* for every track change or new race */ 
-    itf->rbNewRace  = newrace; 	 /* Start a new race */
-    itf->rbDrive    = drive;	 /* Drive during race */
+                 /* for every track change or new race */ 
+    itf->rbNewRace  = newrace;   /* Start a new race */
+    itf->rbDrive    = drive;     /* Drive during race */
     itf->rbPitCmd   = NULL;
-    itf->rbEndRace  = endrace;	 /* End of the current race */
-    itf->rbShutdown = shutdown;	 /* Called before the module is unloaded */
-    itf->index      = index; 	 /* Index used if multiple interfaces */
+    itf->rbEndRace  = endrace;   /* End of the current race */
+    itf->rbShutdown = shutdown;  /* Called before the module is unloaded */
+    itf->index      = index;     /* Index used if multiple interfaces */
     return 0; 
 } 
 
@@ -191,22 +193,22 @@ const float SHIFT_MARGIN = 4.0;  /* [m/s] */
 
 int getGear(tCarElt *car)
 {
-	if (car->_gear <= 0)
-		return 1;
-	float gr_up = car->_gearRatio[car->_gear + car->_gearOffset];
-	float omega = car->_enginerpmRedLine/gr_up;
-	float wr = car->_wheelRadius(2);
+    if (car->_gear <= 0)
+        return 1;
+    float gr_up = car->_gearRatio[car->_gear + car->_gearOffset];
+    float omega = car->_enginerpmRedLine/gr_up;
+    float wr = car->_wheelRadius(2);
 
-	if (omega*wr*SHIFT < car->_speed_x) {
-		return car->_gear + 1;
-	} else {
-		float gr_down = car->_gearRatio[car->_gear + car->_gearOffset - 1];
-		omega = car->_enginerpmRedLine/gr_down;
-		if (car->_gear > 1 && omega*wr*SHIFT > car->_speed_x + SHIFT_MARGIN) {
-			return car->_gear - 1;
-		}
-	}
-	return car->_gear;
+    if (omega*wr*SHIFT < car->_speed_x) {
+        return car->_gear + 1;
+    } else {
+        float gr_down = car->_gearRatio[car->_gear + car->_gearOffset - 1];
+        omega = car->_enginerpmRedLine/gr_down;
+        if (car->_gear > 1 && omega*wr*SHIFT > car->_speed_x + SHIFT_MARGIN) {
+            return car->_gear - 1;
+        }
+    }
+    return car->_gear;
 }
 
 //  Receive 0MQ string from socket and convert into C string
@@ -298,7 +300,8 @@ static void drive(int index, tCarElt* car, tSituation *s)
 
         angle = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw;
         NORM_PI_PI(angle); // put the angle back in the range from -PI to PI
-        angle -= car->info.steeringCollisionAvoidance*(car->_trkPos.toMiddle+desiredLane*laneWidth)/car->_trkPos.seg->width;
+        // desiredLane = 2*(car->info.steeringCollisionAvoidance > 0)-1;
+        angle -= std::abs((double)car->info.steeringCollisionAvoidance)*(car->_trkPos.toMiddle+car->info.desiredLane*laneWidth)/car->_trkPos.seg->width;
 
         // set up the values to return
         car->ctrl.steer = angle / car->_steerLock;

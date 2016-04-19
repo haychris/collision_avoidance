@@ -818,13 +818,13 @@ ReOneStep(double deltaTimeIncrement)
 			curCar = s->cars[i];
 		}  
 	}
-	if (s->cars[0]->info.startRank == 0) {
-		obstacleCarAhead = s->cars[0];
-		curCar = s->cars[1];
-	} else {
-		obstacleCarAhead = s->cars[1];
-		curCar = s->cars[0];
-	}
+	// if (s->cars[0]->info.startRank == 0) {
+	// 	obstacleCarAhead = s->cars[0];
+	// 	curCar = s->cars[1];
+	// } else {
+	// 	obstacleCarAhead = s->cars[1];
+	// 	curCar = s->cars[0];
+	// }
 	if (s->_ncars == NUM_TRAIN_CARS && !printed_initial_speeds && s->currentTime > 0.001) {
 		dataFile.open ("/home/christopher/data_bin/summary_car_data.txt", std::ios::out | std::ios::app);
 		dataFile << "Training: " << curCar->info.training << "\n";
