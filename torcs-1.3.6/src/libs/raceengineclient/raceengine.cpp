@@ -826,7 +826,7 @@ ReOneStep(double deltaTimeIncrement)
 	// 	curCar = s->cars[0];
 	// }
 	if (s->_ncars == NUM_TRAIN_CARS && !printed_initial_speeds && s->currentTime > 0.001) {
-		dataFile.open ("/home/christopher/data_bin/summary_car_data.txt", std::ios::out | std::ios::app);
+		dataFile.open ("/home/chris/data_bin/summary_car_data.txt", std::ios::out | std::ios::app);
 		dataFile << "Training: " << curCar->info.training << "\n";
 		dataFile << "obstacleCarAhead starting_speed: " << obstacleCarAhead->pub.speed << "\n";
 		dataFile << "obstacleCarLeft starting_speed: " << obstacleCarLeft->pub.speed << "\n";
@@ -838,6 +838,7 @@ ReOneStep(double deltaTimeIncrement)
 		dataFile << "obstacleCarRight starting_distance: " << obstacleCarRight->_distFromStartLine - curCar->_distFromStartLine << "\n";
 		dataFile << "useBrakes: " << curCar->info.brakeCollisionAvoidance << "\n";
 		dataFile << "useSteering: " << curCar->info.steeringCollisionAvoidance << "\n";
+		dataFile << "desiredLane: " << curCar->info.desiredLane << "\n";
 		dataFile << "obstacleCarAhead starting_damage: " << obstacleCarAhead->priv.dammage << "\n"; 
   		dataFile << "obstacleCarLeft starting_damage: " << obstacleCarLeft->priv.dammage << "\n"; 
 		dataFile << "obstacleCarRight starting_damage: " << obstacleCarRight->priv.dammage << "\n"; 
@@ -934,7 +935,7 @@ ReOneStep(double deltaTimeIncrement)
     double minTime = 1;
     double maxTime = 15;
     if (s->_ncars == NUM_TRAIN_CARS && s->currentTime > minTime){
-    	if (s->cars[s->_ncars-1]->pub.speed < speedRestartThreshold ||  s->currentTime > maxTime) 
+    	if ((s->cars[1]->pub.speed < speedRestartThreshold && s->cars[2]->pub.speed < speedRestartThreshold && s->cars[3]->pub.speed < speedRestartThreshold) ||  s->currentTime > maxTime) 
     		restartRequested = true;
     }
 	// if (s->currentTime > 10) {

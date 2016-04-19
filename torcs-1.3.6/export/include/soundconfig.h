@@ -1,1 +1,1 @@
-/home/christopher/projects/DeepDriving/torcs-1.3.6/src/libs/confscreens/soundconfig.h
+/home/chris/collision_avoidance/torcs-1.3.6/src/libs/confscreens/soundconfig.h
