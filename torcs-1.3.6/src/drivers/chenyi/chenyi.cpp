@@ -249,6 +249,7 @@ extern double* ptoMarking_RR;
 
 extern double* pUseBrakes;
 extern double* pUseSteering;
+extern double* pDesiredLane;
 
 // Compute the length to the start of the segment.
 float getDistToSegStart(tCarElt *ocar)
@@ -263,7 +264,6 @@ float getDistToSegStart(tCarElt *ocar)
 double initialSpeed;
 bool setInitialSpeed = FALSE;
 //double keepLR=-2.0;   // for two-lane
-double desiredLane=-1;   // -1=left, 0=middle, 1=right
 double laneWidth = 4.0;
 
 static void drive(int index, tCarElt* car, tSituation *s) 
@@ -457,13 +457,21 @@ static void drive(int index, tCarElt* car, tSituation *s)
 
         if (pUseSteering == NULL) {
           std::cout << "ERROR: Null useSteering";
-        } else if (*pUseSteering != 0){
+        // } else if (*pUseSteering != 0){
+        } else {
+          double desiredLane;
+          if (pDesiredLane == NULL) {
+            std::cout << "ERROR: Null useSteering";
+            desiredLane=-1;   // -1=left, 0=middle, 1=right
+          } else {
+            desiredLane = *pDesiredLane;
+          }
           float angle;
 
           angle = RtTrackSideTgAngleL(&(car->_trkPos)) - car->_yaw;
           NORM_PI_PI(angle); // put the angle back in the range from -PI to PI
           angle -= (*pUseSteering)*(car->_trkPos.toMiddle+desiredLane*laneWidth)/car->_trkPos.seg->width;
-
+          std::cout << *pUseSteering << " " << *pDesiredLane << "\n";
           // set up the values to return
           car->ctrl.steer = angle / car->_steerLock;
         }

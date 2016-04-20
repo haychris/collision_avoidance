@@ -651,8 +651,10 @@ extern double* ptoMarking_RR_ghost;
 
 extern double* pUseBrakes_ghost;
 extern double* pUseSteering_ghost; 
+extern double* pDesiredLane_ghost;
 extern double* pUseBrakes;
 extern double* pUseSteering;
+extern double* pDesiredLane;
 
 //////
 double* psteerCmd=NULL;
@@ -683,6 +685,7 @@ double* ptoMarking_RR=NULL;
 
 double* pUseBrakes = NULL;
 double* pUseSteering = NULL;
+double* pDesiredLane = NULL;
 
 //////
 
@@ -744,6 +747,7 @@ ReOneStep(double deltaTimeIncrement)
 
         pUseBrakes = pUseBrakes_ghost;
         pUseSteering = pUseSteering_ghost;
+        pDesiredLane = pDesiredLane_ghost;
      }
 /////////////////////////// by Chenyi
 
@@ -825,8 +829,13 @@ ReOneStep(double deltaTimeIncrement)
 	// 	obstacleCarAhead = s->cars[1];
 	// 	curCar = s->cars[0];
 	// }
+
 	if (s->_ncars == NUM_TRAIN_CARS && !printed_initial_speeds && s->currentTime > 0.001) {
-		dataFile.open ("/home/chris/data_bin/summary_car_data.txt", std::ios::out | std::ios::app);
+		if (curCar->info.training) {
+			dataFile.open ("/home/christopher/data_bin/train_summary_data.txt", std::ios::out | std::ios::app);
+		} else {
+			dataFile.open ("/home/christopher/data_bin/test_summary_data.txt", std::ios::out | std::ios::app);
+		}
 		dataFile << "Training: " << curCar->info.training << "\n";
 		dataFile << "obstacleCarAhead starting_speed: " << obstacleCarAhead->pub.speed << "\n";
 		dataFile << "obstacleCarLeft starting_speed: " << obstacleCarLeft->pub.speed << "\n";

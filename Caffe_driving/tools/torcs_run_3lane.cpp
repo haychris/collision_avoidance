@@ -94,6 +94,7 @@ struct shared_use_st
 
     double useBrakes;
     double useSteering;
+    double desiredLane;
 };
 
 //  Receive 0MQ string from socket and convert into C string
@@ -173,6 +174,7 @@ int main(int argc, char** argv) {
 
     shared->useBrakes = 0.0;
     shared->useSteering = 0.0;
+    shared->desiredLane = 0.0;
 
     void *context;
     void *requester;
@@ -962,7 +964,25 @@ int main(int argc, char** argv) {
         const char *request;
         std::stringstream convert;
         double prevDist = dist_MM;
-        convert << shared->speed << " " << dist_MM;
+
+        // int curLane = -2;
+        // if (true_toMarking_LL>-9 && true_toMarking_RR>9)  // Right lane
+        //   curLane = 1;
+        // else if (true_toMarking_RR<9 && true_toMarking_LL>-9)    // central lane
+        //   curLane = 0;
+        // else if (true_toMarking_RR<9 && true_toMarking_LL<-9)   // left lane
+        //   curLane = -1;
+
+        int offroad = 10;
+        // curCar speed, dist left car, dist middle car, dist right car
+        // if (curLane == -1)
+        //   convert << shared->speed << " " << offroad << " " << dist_L << " " << dist_R;
+        // else if (curLane == 0) 
+        //   convert << shared->speed << " " << dist_LL << " " << dist_MM << " " << dist_RR;
+        // else if (curLane == 1)
+        //   convert << shared->speed << " " << dist_L << " " << dist_R << " " << offroad;
+        // else 
+          convert << shared->speed << " " << dist_LL << " " << dist_MM << " " << dist_RR;
         request = convert.str().c_str();
 
         s_send(requester, request);
@@ -979,7 +999,8 @@ int main(int argc, char** argv) {
 
         shared->useBrakes = v[0];
         shared->useSteering = v[1];
-        // std::cout << "brakes: " << shared->useBrakes  << " Steering: " << shared->useSteering << "\n";
+        shared->desiredLane = v[2];
+        // std::cout << "brakes: " << shared->useBrakes  << " Steering: " << shared->useSteering << " Desired lane: " << shared->desiredLane << "\n";
         /////////
         //////////////////// END CHRIS
 

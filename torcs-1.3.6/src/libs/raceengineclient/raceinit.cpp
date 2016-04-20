@@ -376,7 +376,7 @@ initStartingGrid(void)
 	tdble obstacleCarRightSpeed = rand() % 130; //150
 
 	// int max_desired_offset = (car_2_speed - car_1_speed)*2+20;
-	int MAX_DESIRED_OFFSET = 140;//300
+	int MAX_DESIRED_OFFSET = 100;//300
 	// int min_desired_offset = std::max((double)(car_1_speed - car_2_speed),(double)2) /2; //2
 	int MIN_DESIRED_OFFSET = 2;
 	tdble desiredOffsetAhead = rand() % MAX_DESIRED_OFFSET + MIN_DESIRED_OFFSET;

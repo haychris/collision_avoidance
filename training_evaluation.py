@@ -3,9 +3,9 @@ import numpy as np
 from cleaner import get_data
 
 K = 5
-f = open('/home/christopher/data_bin/train_test_1car_randomforestdecisions.txt')
+f = open('data_bin/train_test_1car_randomforestdecisions.txt')
 train, test = get_data(f)
-df = test
+df = train
 
 
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier

@@ -30,7 +30,7 @@ sparkle.o: sparkle.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tgf.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
@@ -54,14 +54,14 @@ sparkle.o: sparkle.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/os_defines.h \
  /usr/include/x86_64-linux-gnu/c++/4.8/bits/cpu_defines.h \
  /usr/include/string.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/osspec.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/track.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/car.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/osspec.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/track.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -75,11 +75,11 @@ sparkle.o: sparkle.cpp /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/raceman.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/graphic.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/simu.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robottools.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robot.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/raceman.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/graphic.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/simu.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robottools.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robot.h \
  driver.h linalg.h opponent.h pit.h spline.h
 driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -119,7 +119,7 @@ driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tgf.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
@@ -138,14 +138,14 @@ driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/osspec.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/track.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/car.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/osspec.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/track.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -159,11 +159,11 @@ driver.o: driver.cpp /usr/include/stdc-predef.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/raceman.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/graphic.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/simu.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robottools.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robot.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/raceman.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/graphic.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/simu.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robottools.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robot.h \
  linalg.h opponent.h pit.h spline.h
 opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/stdio.h /usr/include/features.h \
@@ -203,7 +203,7 @@ opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tgf.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
@@ -222,14 +222,14 @@ opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/osspec.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/track.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/car.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/osspec.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/track.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -243,11 +243,11 @@ opponent.o: opponent.cpp /usr/include/stdc-predef.h opponent.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/raceman.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/graphic.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/simu.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robottools.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robot.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/raceman.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/graphic.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/simu.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robottools.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robot.h \
  linalg.h driver.h pit.h spline.h
 spline.o: spline.cpp /usr/include/stdc-predef.h spline.h
 pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
@@ -288,7 +288,7 @@ pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/nan.h \
  /usr/include/x86_64-linux-gnu/bits/mathdef.h \
  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tgf.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tgf.h \
  /usr/include/x86_64-linux-gnu/sys/param.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed/syslimits.h \
@@ -307,14 +307,14 @@ pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/param.h /usr/include/linux/param.h \
  /usr/include/x86_64-linux-gnu/asm/param.h \
  /usr/include/asm-generic/param.h /usr/include/assert.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/osspec.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/track.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/linalg_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v3_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/v4_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/tmath/straight2_t.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/car.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/osspec.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/track.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/linalg_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v3_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/v4_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/tmath/straight2_t.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/car.h \
  /usr/include/plib/sg.h /usr/include/plib/ul.h /usr/include/ctype.h \
  /usr/include/unistd.h /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
  /usr/include/x86_64-linux-gnu/bits/environments.h \
@@ -328,9 +328,9 @@ pit.o: pit.cpp /usr/include/stdc-predef.h pit.h driver.h \
  /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
  /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/raceman.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/graphic.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/simu.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robottools.h \
- /home/chris/collision_avoidance/torcs-1.3.6/export/include/robot.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/raceman.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/graphic.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/simu.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robottools.h \
+ /home/christopher/projects/DeepDriving2/torcs-1.3.6/export/include/robot.h \
  linalg.h opponent.h spline.h

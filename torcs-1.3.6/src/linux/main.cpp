@@ -162,6 +162,7 @@ struct shared_use_st
 
     double useBrakes;
     double useSteering;
+    double desiredLane;
 }; 
 
 int* pwritten = NULL;
@@ -197,6 +198,7 @@ double* ptoMarking_RR_ghost = NULL;
 
 double* pUseBrakes_ghost = NULL;
 double* pUseSteering_ghost = NULL;
+double* pDesiredLane_ghost = NULL;
 
 void *shm = NULL;
 //////////////////////////////////////////// by Chenyi
@@ -256,6 +258,7 @@ main(int argc, char *argv[])
 
     shared->useBrakes = 0.0;
     shared->useSteering = 0.0;
+    shared->desiredLane = 0.0;
 
     pwritten=&shared->written;
     pdata=shared->data;
@@ -290,6 +293,7 @@ main(int argc, char *argv[])
 
     pUseBrakes_ghost = &shared->useBrakes;
     pUseSteering_ghost = &shared->useSteering;
+    pDesiredLane_ghost = &shared->desiredLane;
 /////////////////////////////////////////// by Chenyi
 
 	const char *raceconfig = "";
