@@ -103,9 +103,9 @@ def classification_test(X, Y, equalize=True):
 		else:
 			train_x = partial_x
 		print name
-		# pred_probas = k_fold_predict_proba(clf, train_x, partial_y, K)
-		# cutoff = cutoff_for_desired_recall(partial_y, pred_probas)
-		# proba_analysis(partial_y, pred_probas, cutoff)
+		pred_probas = k_fold_predict_proba(clf, train_x, partial_y, K)
+		cutoff = cutoff_for_desired_recall(partial_y, pred_probas)
+		proba_analysis(partial_y, pred_probas, cutoff)
 		preds = cross_validation.cross_val_predict(clf, train_x, partial_y, cv=K)
 		print metrics.classification_report(partial_y, preds)
 

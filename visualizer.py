@@ -16,6 +16,21 @@ def facet_plot():
 facet_plot()
 
 
+def subset(dat, brake, steer):
+	dat2 = dat[dat['discretizedBrakes']==brake]
+	dat2 = dat2[dat2['discretizedSteering']==steer]
+	return dat2
+
+def statm(brake,steer):
+	total = len(subset(df, brake, steer))
+	print round(1.0*sum(subset(df, brake,steer)['collision']) / total, 4),
+	print round(1.0*sum(subset(df, brake,steer)['curCar went_offroad'])/total, 4),
+	print round(1.0* sum(subset(df, brake,steer)['collisionOrOffroad'])/total, 4)
+
+statm(0.0,1.0)
+statm(1.0,0.0)
+statm(0.8,0.4)
+
 # g = sns.FacetGrid(df, col='discretizedBrakes', row='discretizedSteering', hue='collision')
 # g.map(plt.scatter, 'speedDifference', 'starting_distance')
 # g.add_legend()
