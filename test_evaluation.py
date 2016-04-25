@@ -18,3 +18,9 @@ g = sns.FacetGrid(df, hue='collision_offroad', hue_order=['None', 'Collision', '
 g.map(plt.scatter, 'speedDifference', 'starting_distance')
 g.add_legend()
 plt.show()
+
+
+total = len(df)
+print round(1.0*sum(df['collision']) / total, 4),
+print round(1.0*sum(df['curCar went_offroad'])/total, 4),
+print round(1.0* sum(df['collisionOrOffroad'])/total, 4)

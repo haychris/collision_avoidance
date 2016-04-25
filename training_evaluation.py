@@ -11,6 +11,8 @@ df = train
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor
 
+from sklearn.linear_model import LogisticRegression
+
 from sklearn.naive_bayes import BernoulliNB
 from sklearn.svm import SVC, SVR
 from sklearn import cross_validation
@@ -92,6 +94,7 @@ def classification_test(X, Y, equalize=True):
 
 	classifiers = [('Random Forest Classifier', RandomForestClassifier(n_estimators=100), False), 
 				   ('AdaBoost Classifier', AdaBoostClassifier(), False), 
+				   ('Logistic Regression', LogisticRegression(), False),
 				   ('SVC', SVC(probability=True), False), 
 				   ('Bernoulli NB', BernoulliNB(), False),
 				   ('Neural Net w/ Sigmoid -> Rectifier -> Softmax', nn, True)]
@@ -137,7 +140,8 @@ def regression_test(X, Y):
 
 
 
-x_cols = ['curCar starting_speed', 'starting_distance', 'discretizedBrakes', 'discretizedSteering']
+# x_cols = ['curCar starting_speed', 'starting_distance', 'discretizedBrakes', 'discretizedSteering']
+x_cols = ['curCar starting_speed', 'starting_distance', 'useBrakes', 'useSteering']
 
 print '################# CLASSIFICATION TEST FOR %s #################' %  'collision'
 classification_test(*makeTrainData(x_cols, 'collision'))
