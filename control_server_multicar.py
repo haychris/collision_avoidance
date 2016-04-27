@@ -6,6 +6,9 @@ import numpy as np
 
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 from sklearn.linear_model import LogisticRegression
+from sknn.mlp import Classifier, Layer, Regressor
+
+from sklearn import preprocessing
 
 from cleaner import get_multicar_data, MULTICAR_X_COLS
 
@@ -21,14 +24,31 @@ y_col = 'collisionOrOffroad'
 train_x = df[x_cols]
 train_y = df[y_col]
 
+norm = True
+
+if norm:
+	scaler = preprocessing.MinMaxScaler((-1,1))
+	scaler.fit(train_x)
+	train_x = scaler.transform(train_x)
+
+
 rfc = RandomForestClassifier(n_estimators=100)
 lr = LogisticRegression()
 ada = AdaBoostClassifier()
 
-clf = rfc
-clf2 = ada
-clf.fit(train_x, train_y)
-clf2.fit(train_x, train_y)
+max_layer_size = len(x_cols)**2
+max_layers = [Layer("Sigmoid", units=max_layer_size/4),
+			  Layer("Rectifier", units=max_layer_size/2),
+			  Layer("Softmax")]
+nn = Classifier(layers=max_layers,learning_rate=0.08, n_iter=300)
+
+classifiers = [nn]
+for clf in classifiers:
+	clf.fit(train_x, train_y)
+# clf = rfc
+# clf2 = rfc
+# clf.fit(train_x, train_y)
+# clf2.fit(train_x, train_y)
 
 
 print 'ESTABLISHING SERVER'
@@ -78,9 +98,16 @@ while True:
 		socket.send(result)
 		continue
 
-	probs = clf.predict_proba(x2)
-	probs2 = clf2.predict_proba(x2)
-	probs += probs2
+	if norm:
+		for i,beh in enumerate(behaviors):
+			x2[i,4:] = beh
+		x2 = scaler.transform(x2)
+	probs = classifiers[0].predict_proba(x2)
+	for clf in classifiers[1:]:
+		probs += clf.predict_proba(x2)
+	# probs = clf.predict_proba(x2)
+	# probs2 = clf2.predict_proba(x2)
+	# probs += probs2
 	min_proba_behavior = behaviors[np.argmin(probs[:,1])]
 
 	print probs[:,1]
