@@ -14,7 +14,7 @@ from cleaner import get_multicar_data, MULTICAR_X_COLS
 
 print 'GETTING DATA'
 K = 5
-f = open('data_bin/train_test_multicar_lr.txt')
+f = open('data_bin/train_test_multicar_horizontal.txt')
 train, test = get_multicar_data(f)
 df = train
 
@@ -69,7 +69,7 @@ behaviors = list(itertools.product(brakesBehaviors, steeringBehaviors, desiredLa
 probs = np.zeros(len(behaviors))
 
 request_size = len(x_cols) - len(behaviors[0])
-x2 = np.array([(0, 0, 0, 0, beh[0], beh[1], beh[2]) for beh in behaviors])
+x2 = np.array([(0, 0, 0, 0, 0, beh[0], beh[1], beh[2]) for beh in behaviors])
 
 while True:
 	#  Wait for next request from client
@@ -100,7 +100,7 @@ while True:
 
 	if norm:
 		for i,beh in enumerate(behaviors):
-			x2[i,4:] = beh
+			x2[i,5:] = beh
 		x2 = scaler.transform(x2)
 	probs = classifiers[0].predict_proba(x2)
 	for clf in classifiers[1:]:

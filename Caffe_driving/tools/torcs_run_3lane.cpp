@@ -974,6 +974,7 @@ int main(int argc, char** argv) {
         //   curLane = -1;
 
         int offroad = 10;
+        double toMiddle = (toMarking_ML + toMarking_MR) / 2.0;
         // curCar speed, dist left car, dist middle car, dist right car
         // if (curLane == -1)
         //   convert << shared->speed << " " << offroad << " " << dist_L << " " << dist_R;
@@ -982,7 +983,7 @@ int main(int argc, char** argv) {
         // else if (curLane == 1)
         //   convert << shared->speed << " " << dist_L << " " << dist_R << " " << offroad;
         // else 
-          convert << shared->speed << " " << dist_LL << " " << dist_MM << " " << dist_RR;
+          convert << shared->speed << " " << dist_LL << " " << dist_MM << " " << dist_RR << " " << toMiddle;
         request = convert.str().c_str();
 
         s_send(requester, request);

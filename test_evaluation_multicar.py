@@ -1,11 +1,13 @@
+import sys
 import matplotlib.pyplot as plt
 import seaborn as sns
-from cleaner import get_data
+from cleaner import get_multicar_data
 
-f = open('data_bin/train_test_multicar.txt')
-train, test = get_data(f)
+default = 'data_bin/test_summary_data.txt'
+f = open(sys.argv[1])
+train, test = get_multicar_data(f)
 df = test
-x_cols = ['curCar starting_speed', 'starting_distance', 'discretizedBrakes', 'discretizedSteering']
+x_cols = ['curCar starting_speed', 'obstacleCarAhead starting_distance', 'discretizedBrakes', 'discretizedSteering']
 # df['bad'] = df['collision'] + 2*df['curCar went_offroad']
 # sns.stripplot(x='speedDifference', y='starting_distance', data=df, hue='collision')
 # plt.scatter(df['speedDifference'], df['starting_distance'], c=df['bad'])
@@ -14,10 +16,10 @@ x_cols = ['curCar starting_speed', 'starting_distance', 'discretizedBrakes', 'di
 
 
 
-g = sns.FacetGrid(df, hue='collision_offroad', hue_order=['None', 'Collision', 'Offroad', 'Collision & Offroad'])
-g.map(plt.scatter, 'speedDifference', 'starting_distance')
-g.add_legend()
-plt.show()
+# g = sns.FacetGrid(df, hue='collision_offroad', hue_order=['None', 'Collision', 'Offroad', 'Collision & Offroad'])
+# g.map(plt.scatter, 'obstacleCarAhead speedDifference', 'obstacleCarAhead starting_distance')
+# g.add_legend()
+# plt.show()
 
 
 total = len(df)

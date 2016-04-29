@@ -40,6 +40,7 @@ def get_data(f, num_categories=5):
 	return training, testing
 
 EXAMPLE_MULTICAR_DATA = {'obstacleCarAhead starting_speed': 32.2902,
+	'curCar starting_toMiddle': 0.0263338,
 	'obstacleCarLeft starting_speed': 0.0121755,
 	'obstacleCarRight starting_speed': 56.5245,
 	'curCar starting_speed': 31.8883,
@@ -69,7 +70,7 @@ EXAMPLE_MULTICAR_DATA = {'obstacleCarAhead starting_speed': 32.2902,
 	'curCar avgAccel': 2.71321}
 
 MULTICAR_X_COLS = ['curCar starting_speed', 'obstacleCarLeft starting_distance',
-				   'obstacleCarAhead starting_distance', 'obstacleCarRight starting_distance',
+				   'obstacleCarAhead starting_distance', 'obstacleCarRight starting_distance', 'curCar starting_toMiddle',
 				   'discretizedBrakes', 'discretizedSteering', 'desiredLane']
 def get_multicar_data(f, num_categories=5):
 	
